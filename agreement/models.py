@@ -1,6 +1,5 @@
 from django.db import models
 from django.db.models.fields.related import create_many_to_many_intermediary_model
-from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
 
@@ -21,8 +20,8 @@ class student(models.Model):
     GENDER_FEMALE = 1
     GENDER_CHOICES = [(GENDER_MALE, 'Male'), (GENDER_FEMALE, 'Female')]
     gender = models.IntegerField(choices=GENDER_CHOICES)
-    telifon1 = PhoneNumberField(null=False, blank=False, unique=True)
-    telifon1 = PhoneNumberField(null=False, blank=True, unique=True)
+    telifon1 = models.IntegerField(null=False, blank=False, unique=True)
+    telifon1 = models.IntegerField(null=False, blank=True, unique=True)
     status = models.CharField(max_length=15 , choices=status_choices)
 
     def __str__(self):
@@ -31,7 +30,7 @@ class student(models.Model):
 class teacher(models.Model):
     name = models.CharField(max_length=50)
     age = models.IntegerField()
-    phone = PhoneNumberField(null=False, blank=False, unique=True)
+    phone = models.IntegerField(null=False, blank=False, unique=True)
 
 
 
@@ -46,7 +45,7 @@ class agreement(models.Model):
     teacher = models.ForeignKey(teacher, on_delete=models.SET_NULL, null=True)
     course = models.ForeignKey(course,  on_delete=models.SET_NULL, null=True)
     student = models.ForeignKey(student,  on_delete=models.SET_NULL, null=True)
-    shartnoma_raqammi = models.integerField()
+    shartnoma_raqammi = models.IntegerField()
     kunlari = models.CharField(max_length=30, choices=(("Dushanba-Juma","Dushanba-Juma"),("Sheshanba-Shanba","Sheshanba-Shanba")))
     kurs_vaqti = models.CharField(max_length=50, choices=kurs_vaqtlari)
     guruh_nomi = models.CharField(max_length=50)
