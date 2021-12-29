@@ -54,7 +54,7 @@ class agreement(models.Model):
     status = models.CharField(max_length=50, choices=(("Activa", "Activa"),("Passive", "Passive")))
 
     def __str__(self):
-        return f"#{self.shartnoma_raqammi},{self.student}, {self.shartnoma}"
+        return f"#{self.shartnoma_raqammi},{self.student}"
 
 
 
