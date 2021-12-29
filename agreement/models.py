@@ -15,13 +15,13 @@ status_choices = [('new', 'new'),('loyal', 'loyal'),]
 class student(models.Model):
     ism = models.CharField(max_length=50)
     familya = models.CharField(max_length=50)
-    sharif = models.CharField(max_length=50)
+    sharif = models.CharField(max_length=50, blank=True)
     GENDER_MALE = 0
     GENDER_FEMALE = 1
     GENDER_CHOICES = [(GENDER_MALE, 'Male'), (GENDER_FEMALE, 'Female')]
     gender = models.IntegerField(choices=GENDER_CHOICES)
-    telifon1 = models.IntegerField(null=False, blank=False, unique=True)
-    telifon1 = models.IntegerField(null=False, blank=True, unique=True)
+    telifon1 = models.CharField(max_length=15)
+    telifon1 = models.CharField(max_length=15)
     status = models.CharField(max_length=15 , choices=status_choices)
 
     def __str__(self):
@@ -30,7 +30,7 @@ class student(models.Model):
 class teacher(models.Model):
     name = models.CharField(max_length=50)
     age = models.IntegerField()
-    phone = models.IntegerField(null=False, blank=False, unique=True)
+    phone = models.CharField(max_length=15)
 
 
 
